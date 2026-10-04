@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+</head>
+<body>
+
+    <ul>
+        <li>Item Nº 1</li>
+        <li>Item Nº 2</li>
+        <li>Item Nº 3</li>
+        <li>Item Nº 4</li>
+    </ul>
+
+    <button style="cursor:pointer">Adicionar Item</button>
+
+    <script>
+
+        const lista = document.querySelector("ul")
+        const botao = document.querySelector("button")
+        let contador = 4
+
+        botao.addEventListener("click", ()=>{
+
+        contador++
+        let novoItem = document.createElement("li")
+
+        novoItem.innerText = "Item Nº " + contador
+        lista.appendChild(novoItem)
+
+        }) 
+
+    </script>
+    
+</body>
+</html>

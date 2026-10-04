@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-image: url("https://i.pinimg.com/originals/8b/bf/52/8bbf52cb9ef79091e8a5ae85ecc1f4e2.jpg");
+            background-position: cover;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            width: 400px;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+        }
+
+        .form-container h2 {
+            margin-top: 0;
+            margin-bottom: 24px;
+            color: #333333;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #555555;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333333;
+            background-color: #ffffff;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus {
+            border-color: #0066cc;
+        }
+
+        .input-group ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .input-group ul li {
+            font-size: 13px;
+            color: rgb(93, 90, 90);
+            font-weight: 300;
+            margin-top: 5px;
+        }
+
+        .form-actions {
+            margin-top: 24px;
+        }
+
+        .form-actions button {
+            width: 100%;
+            padding: 12px;
+            background-color: #0066cc;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .form-actions button:hover {
+            background-color: #0052a3;
+        }
+
+        .senha {
+            display: flex;
+            align-items: center;
+        }
+
+        .senha .olho {
+            cursor: pointer;
+            position: relative;
+            left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>Criar Conta</h2>
+        <form action="#">
+            <div class="input-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+            </div>
+
+
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <div class="senha">
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required
+                        class="campoSenha">
+
+                    <div class="olho" data-target="senha">
+                        <i class="bi bi-eye icone-olho"></i>
+                    </div>
+                </div>
+                <ul>
+                    <li id="li1">A senha deve ter ao menos 8 caracteres</li>
+                    <li id="li2">Deve conter uma letra maúscula, um número e um caractere especial</li>
+                </ul>
+            </div>
+
+
+            <div class="input-group">
+                <label for="confirmar-senha">Confirmação de Senha</label>
+                <div class="senha">
+                    <input type="password" id="confirmar-senha" name="confirmar_senha" placeholder="Confirme sua senha"
+                        required class="campoSenha">
+
+                    <div class="olho" data-target="confirmar-senha">
+                        <i class="bi bi-eye icone-olho"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.querySelector("form")
+        const campoSenha = document.querySelector("#senha")
+        const li1 = document.querySelector("#li1")
+        const li2 = document.querySelector("#li2")
+        const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+        const botoesOlho = document.querySelectorAll(".olho")
+
+        botoesOlho.forEach(botaoOlho => {
+            botaoOlho.addEventListener("click", () => {
+                const targetId = botaoOlho.getAttribute("data-target")
+                const inputAlvo = document.getElementById(targetId)
+                const icone = botaoOlho.querySelector(".icone-olho")
+
+                if (inputAlvo.type === 'password') {
+                    inputAlvo.type = 'text'
+                    icone.classList.remove('bi-eye')
+                    icone.classList.add('bi-eye-slash')
+                } else {
+                    inputAlvo.type = 'password'
+                    icone.classList.remove('bi-eye-slash')
+                    icone.classList.add('bi-eye')
+                }
+            })
+        })
+
+        campoSenha.addEventListener("input", () => {
+            if (campoSenha.value.length >= 8) {
+                li1.style.color = "green"
+            } else {
+                li1.style.color = "rgb(93, 90, 90)"
+            }
+
+            if (senhaRegex.test(campoSenha.value)) {
+                li2.style.color = "green"
+            } else {
+                li2.style.color = "rgb(93, 90, 90)"
+            }
+        })
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault() // Adicionei o preventDefault para evitar recarregar a página ao testar
+
+            const nome = document.querySelector("#nome").value
+            const email = document.querySelector("#email").value
+            const senha = document.querySelector("#senha").value
+            const confirmarSenha = document.querySelector("#confirmar-senha").value
+
+            let formValido = true
+
+            if (nome.length < 3) {
+                formValido = false
+            }
+
+            if (emailRegex.test(email) == false) {
+                formValido = false
+            }
+
+            if (senha.length < 8 || senhaRegex.test(senha) == false) {
+                alert('A senha não está no padrão informado')
+                formValido = false
+            }
+
+            if (senha !== confirmarSenha) {
+                alert('As senhas não coincidem')
+                formValido = false
+            }
+
+            if (formValido) {
+                alert('Formulário enviado com sucesso!')
+            } else {
+                alert('Preencha os campos de maneira correta')
+            }
+        })
+    </script>
+
+</body>
+
+</html>

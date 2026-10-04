@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificando título</title>
+</head>
+
+<body>
+
+
+    <h1>Esse título pode ser alterado e seu tamanho é aleatório.</h1>
+    <h2>Mude o conteúdo do título: <input type="text" value="" required="true"> </h2>
+    <button>Mudar</button>
+
+
+    <script>
+
+        const TITULO = document.querySelector('h1')
+        const CampoTexto = document.querySelector('input')
+        const botao = document.querySelector('button')
+
+        let tamAleatorio = Math.random(30, 100) * (100 - 30 + 1) + 30 + "px"
+        TITULO.style.fontSize = tamAleatorio
+
+        CampoTexto.addEventListener("input", () => {
+
+
+            TITULO.style.color = "blue"
+
+        })
+
+        botao.addEventListener("click", () => {
+
+            let texto = CampoTexto.value
+            if (texto != "") {
+                TITULO.innerText = texto
+                TITULO.style.color = "#74dc00"
+            } else {
+                TITULO.innerText = "Esse título pode ser alterado e seu tamanho é aleatório."
+                TITULO.style.color = "red"
+            }
+
+
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

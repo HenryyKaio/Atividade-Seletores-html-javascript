@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troca Imagens</title>
+
+    <style>
+        .conteiner {
+            width: 600px;
+            display: flex;
+            gap: 200px;
+            justify-content: center;
+        }
+
+        .conteiner button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <img src="https://picsum.photos/id/237/600/400" alt="">
+    <div class="conteiner">
+    </div>
+
+
+    <script>
+
+        /* Professor eu tentei fazer o desafio de várias formas diferentes mas não consegui,
+        até tentei pesquisar e tentar de outras formas mas estava muito diferente do que eu sei
+        e costumo fazer, então acabei não cumprindo o desafio mesmo */
+
+        const imagens = [
+            "https://picsum.photos/id/237/600/400",
+            "https://picsum.photos/id/238/600/400",
+            "https://picsum.photos/id/239/600/400",
+            "https://picsum.photos/id/240/600/400"
+        ];
+
+        
+        const imagem = document.querySelector("img")
+        const anterior = document.querySelector("#anterior")
+        const proxima = document.querySelector("#proxima")
+        const indice = document.querySelector("#i")
+        let i = 0
+        
+
+        
+        let idIntervalo = setInterval(trocarImagem, 5000)
+        
+        
+        
+        
+        function trocarImagem() {
+            imagem.src = imagens[i]
+            i++
+            if (i > 3) {
+                i = 0
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

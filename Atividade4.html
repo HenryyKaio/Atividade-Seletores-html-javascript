@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+<body>
+
+    <p>0</p>
+    <button style="cursor: pointer;">+</button>
+    <button style="cursor: pointer;" id="zerar">Zerar contador</button>
+
+
+    <script>
+
+        const conteudo = document.querySelector("p")
+        const botao = document.querySelector("button")
+        const zerar = document.querySelector("#zerar")
+        let contador = 0
+
+        botao.addEventListener("click", ()=>{
+
+            contador++
+
+            conteudo.innerText = contador
+
+        })
+
+        zerar.addEventListener("click", ()=>{
+            contador = 0
+
+            conteudo.innerText = contador
+        })
+
+    </script>
+    
+</body>
+</html>

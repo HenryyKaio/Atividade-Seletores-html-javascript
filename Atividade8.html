@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorvete</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            padding: 20px;
+        }
+
+        input {
+            width: 400px;
+            height: 30px;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        select {
+            margin-bottom: 20px;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        body.tema-claro {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        body.tema-escuro {
+            background-color: #1b1818;
+            color: #ffffff;
+        }
+
+        body.tema-escuro input{
+            background-color: gray;
+            color: #fff;
+        }
+
+        body.tema-escuro input::placeholder{
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body class="tema-claro">
+
+    <!-- Seletor de Tema -->
+    <div>
+        <label for="seletor-tema">Escolha o tema: </label>
+        <select id="seletor-tema">
+            <option value="claro">Claro</option>
+            <option value="escuro">Escuro</option>
+        </select>
+    </div>
+
+    <br>
+
+    <input type="text" placeholder="Informe seu sabor preferido de sorvete">
+    <br><br>
+    <span id="mensagem"></span>
+
+    <script>
+        const campoTexto = document.querySelector("input")
+        const mensagem = document.querySelector("#mensagem")
+        const seletorTema = document.querySelector("#seletor-tema")
+        const body = document.querySelector("body")
+
+        seletorTema.addEventListener("change", () => {
+            let temaEscolhido = seletorTema.value
+
+            if (temaEscolhido === "escuro") {
+                body.classList.remove("tema-claro")
+                body.classList.add("tema-escuro")
+            } else {
+                body.classList.remove("tema-escuro")
+                body.classList.add("tema-claro")
+            }
+        })
+
+        campoTexto.addEventListener("input", () => {
+            let digitado = campoTexto.value
+
+            if(digitado.length > 3){
+                if(digitado == "chocolate"){
+                    mensagem.innerText = "Chocolate!! Meu sabor de sorvete favorito!" 
+                }  else if(digitado == "flocos"){
+                    mensagem.innerText = "Ahhh, mas chocolate é meu favorito..."
+                } else {
+                    mensagem.innerText = "Ahhhh, eu esperava um sabor de sorvete."
+                }
+            } else {
+                mensagem.innerText = ""
+            }
+        })
+    </script>
+
+</body>
+
+</html>

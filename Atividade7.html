@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity Falls</title>
+
+    <style>
+        img{
+            width: 305px;
+            height: 360px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="conteiner">
+    <img src="https://static.wikia.nocookie.net/disney/images/e/e3/Profile_-_Dipper_Pines.png/revision/latest/thumbnail/width/360/height/360?cb=20250302171246" alt="dipper">
+    <button id="trocar" style="cursor: pointer">Mudar imagem</button>  
+    </div>
+
+    <h2 id="fala"></h2>
+
+    <script>
+
+        const imagem = document.querySelector("img")
+        const botao = document.querySelector("#trocar")
+        const fala = document.querySelector("#fala")
+        let imagem2 = true
+
+        imagem.addEventListener("mouseenter", ()=>{
+            fala.innerText = "Fala aí mano, quer ver meu diário?"
+        }) 
+
+        imagem.addEventListener("mouseleave", ()=>{
+
+            fala.innerText = "Tome cuidado, gravity Falls é cheia de mistérios."
+
+        })
+
+        imagem.addEventListener("click", ()=>{
+
+            fala.innerText = "Ai! Aí, isso doeu cara."
+
+        })
+
+        botao.addEventListener("click", ()=>{
+            
+            if(imagem2 == true){
+                imagem.src = "https://i.pinimg.com/564x/8b/b4/b2/8bb4b26e96033dfe266d3b5c0e020423.jpg"
+                imagem2 = false
+                fala.innerText = "E-Eu espero que a wendy não veja isso."
+            } else {
+                imagem.src = "https://static.wikia.nocookie.net/disney/images/e/e3/Profile_-_Dipper_Pines.png/revision/latest/thumbnail/width/360/height/360?cb=20250302171246"
+                imagem2 = true
+                fala.innerText = "Ufa."
+            }
+            
+        })
+
+    </script>
+
+</body>
+</html>

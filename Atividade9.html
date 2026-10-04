@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 9</title>
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+        }
+
+        body.dark {
+            --bg-color: #1a1a1a;
+            --text-color: #f0f0f0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+            font-family: sans-serif;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <label for="temaSelect">Escolha o tema:</label>
+    <select id="temaSelect">
+        <option value="light">Claro</option>
+        <option value="dark">Escuro</option>
+    </select>
+
+    <script>
+        const temaSelect = document.getElementById('temaSelect');
+
+        temaSelect.addEventListener('change', (event) => {
+            const tema = event.target.value;
+
+            if (tema === 'dark') {
+                document.body.classList.add('dark');
+            } else {
+                document.body.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+
+</html>

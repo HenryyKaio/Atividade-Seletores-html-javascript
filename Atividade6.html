@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome Aventura</title>
+
+<style>
+    .conteiner{
+        display: flex;
+        height: 30px;
+        align-items: center;
+        gap: 25px;
+    }
+
+    button{
+        cursor: pointer;
+        padding: 5px;
+        font-size: 15px;
+    }
+</style>
+
+    
+</head>
+<body>
+
+    <div class="conteiner">
+    <h1>Clique e veja agora qual seria a sua aventura de um livro de fantasia: </h1>
+    <button>Sortear</button>
+    </div>
+    <h2 id="aventura"> </h2>
+
+    <script>
+
+        const Acao = ["Fuga ", "Caça ", "O ataque ", "Busca "]
+        const Local = ["da Mandragora Assasina ", "Do Ubariano Feroz ", "Da Floresta Amaldiçoada ", "Do castelo ", "Do Wendigo "]
+        const Complemento = ["Cruel", "De Eliom", "Das profundezas", "Imortal", "De Aolis"]
+
+        const botao = document.querySelector("button")
+        let Sorteada = document.querySelector("#aventura")
+
+        function Sortear(array){
+            let indiceAleatorio = Math.floor(Math.random() * array.length)
+            return indiceAleatorio
+        }
+
+        botao.addEventListener("click", ()=>{
+
+            let acaoSort = Acao[Sortear(Acao)]
+            let localSort = Local[Sortear(Local)]
+            let complementoSort = Complemento[Sortear(Complemento)]
+
+            Sorteada.innerText = acaoSort + localSort + complementoSort
+
+        })
+
+
+
+    </script>
+    
+    
+</body>
+</html>
