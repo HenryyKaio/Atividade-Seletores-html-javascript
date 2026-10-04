@@ -1,0 +1,9 @@
+O HTML e o CSS são os pilares do desenvolvimento web, no entanto, existe algo que está por trás deles e que é responsável pelo funcionamento de tudo, o Javascript.
+É como se o HTML fosse a estrutura, o CSS fosse a estilização e o Javascript o comportamento. Ele é como a automação de uma casa, é o que faz a luz acender quando se
+aciona o interruptor, que abre a porta da garagem com o controle remoto. Podemos transformar um site estático em um site totalmente interativo utilizando Javascript,
+de maneira muito mais simples do que fazendo gambiarras com CSS. O Javascript permite: 
+Manipular do DOM: Alterar o conteúdo ou o estilo de um elemento HTML após a página já ter carregado.
+Reagir a Eventos: Responder a cliques do mouse, teclas pressionadas, movimentos de scroll, etc.
+Validar os Formulários: Avisar o usuário que o e-mail está errado antes mesmo de ele enviar os dados.
+Comunicar com APIs: Buscar informações externas (como a previsão do tempo) sem precisar recarregar a página inteira.
+Animar e criar Efeitos Visuais: Criar animações complexas que vão além do que o CSS pode fazer sozinho.
